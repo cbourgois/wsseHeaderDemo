@@ -1,0 +1,25 @@
+{
+  "name": "wsseHeaderDemo",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cbourgois/wsseHeaderDemo",
+  "authors": [
+    "Cyrille Bourgois <cyrille.bourgois@gmail.com>"
+  ],
+  "description": "Wsse Header demo using cryptojs-wsse-header and cryptojs-password-encoder",
+  "keywords": [
+    "wsse",
+    "demo"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cryptojs-password-encoder": "~0.1.0",
+    "cryptojs-wsse-header": "~0.1.0"
+  }
+}

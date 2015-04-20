@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wsse Header Demo</title>
+	<script src="./bower_components/cryptojslib/rollups/sha1.js"></script>
+	<script src="./bower_components/cryptojslib/rollups/sha512.js"></script>
+	<script src="./bower_components/cryptojslib/rollups/sha256.js"></script>
+	<script src="./bower_components/cryptojslib/components/enc-base64.js"></script>
+	<script src="./bower_components/underscore/underscore-min.js"></script>
+	<script src="./bower_components/cryptojs-password-encoder/CryptoJsPasswordEncoder.js"></script>
+	<script src="./bower_components/cryptojs-wsse-header/WsseHeader.js"></script>
+
+	<style type="text/css">
+	pre {
+		background-color: #EEE;
+		width: 90%;
+	}
+	pre.generated {
+		background-color: #FFDB99;
+	}
+	.demo p {
+		text-decoration: underline;
+	}
+	</style>
+
+</head>
+<body>
+	<div >
+		<h1>WsseHeaderDemo</h1>
+		<p>Wsse Header demo using  <a href="https://github.com/cbourgois/wsseHeader">cryptojs-wsse-header</a> and <a href="https://github.com/cbourgois/cryptoJsPasswordEncoder">cryptojs-password-encoder</a></p>
+		<p>Published on <a href="https://github.com/cbourgois/wsseHeaderDemo">Github</a></p>
+	</div>
+	<div class="version">
+		<h2>Versions</h2>
+		<p>cryptojs-password-encoder version</p>
+		<pre id="cryptojs-password-encoder-version"></pre>
+		<p>cryptojs-password-encoder version</p>
+		<pre id="cryptojs-wsse-header-version"></pre>
+	</div>
+	<div class="demo">
+		<h2>Demo</h2>
+		<p>Plain password</p>
+		<pre id="password">myAwesomePassword</pre>
+		<p>Salt</p>
+		<pre id="salt">f5hdgfd6jjkfd7oj4f6jbfl2dj</pre>
+		<p>Encoded password</p>
+		<pre id="encodedPassword" class="generated"></pre>
+		<p>Username</p>
+		<pre id="username">cyrille</pre>
+		<p>Wsse header</p>
+		<pre id="wsseHeader" class="generated"></pre>
+		<script type="text/javascript">
+			document.getElementById('cryptojs-password-encoder-version').innerHTML = CryptoJsPasswordEncoder.VERSION;
+			document.getElementById('cryptojs-wsse-header-version').innerHTML = WsseHeader.VERSION;
+			var password = document.getElementById('password').innerHTML;
+			var salt = document.getElementById('salt').innerHTML;
+
+			var passwordEncoder = new CryptoJsPasswordEncoder('sha512', true, 5000);
+			// var passwordEncoder = new CryptoJsPasswordEncoder();
+			var  encodedPassword = passwordEncoder.encodePassword(password, salt);
+			document.getElementById('encodedPassword').innerHTML = encodedPassword;
+
+			var username = document.getElementById('username').innerHTML;
+			var wsseHeader = new WsseHeader();
+			var wsseHeaderGenerated = wsseHeader.buildWsseHeader(username, encodedPassword, salt);
+			document.getElementById('wsseHeader').innerHTML = wsseHeaderGenerated;
+
+		</script>
+	</div>
+</body>
+</html>
