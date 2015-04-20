@@ -1,0 +1,42 @@
+{
+  "name": "cryptojs-wsse-header",
+  "version": "0.1.0",
+  "authors": [
+    "Cyrille Bourgois <cyrille.bourgois@gmail.com>"
+  ],
+  "homepage": "https://github.com/cbourgois/wsseHeader",
+  "description": "Simple script to generate WSSE header with Crypto JS lib",
+  "main": "WsseHeader.js",
+  "moduleType": [
+    "amd",
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "wsse",
+    "auth",
+    "header",
+    "cryptojs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "cryptojslib": "~3.1.2"
+  },
+  "_release": "0.1.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.1.0",
+    "commit": "cced0f62e0217761e573204aa79424f97de818bd"
+  },
+  "_source": "git://github.com/cbourgois/wsseHeader.git",
+  "_target": "~0.1.0",
+  "_originalSource": "cryptojs-wsse-header",
+  "_direct": true
+}
